@@ -3,9 +3,9 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/components/ui/input";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import { Button } from "./button";
 import { Label } from "./label";
+import { login } from "@/features/login/api/login";
 
 const loginSchema = z.object({
   email: z.string().email({ message: "Invalid email address" }),
@@ -30,14 +30,12 @@ export function LoginForm() {
 
   const onSubmit = async (data: LoginFormData) => {
     try {
-      const response = await axios.post("http://localhost:8080/api/v1/auth/login", data)
+      const response = await login(data)
       if (response.status === 200) {
         navigate("/dashboard")
       }
     } catch (error) {
-      // for now let's just navigate to the dashboard
-      navigate("/dashboard")
-      setError("root", { message: "An error occurred during login " + error })
+      setError("root", { message: error instanceof Error ? error.message : "An error occurred during login"})
     }
   }
 
@@ -77,5 +75,5 @@ export function LoginForm() {
               <div className='text-center '>Log in with Microsoft</div>
             </button>
     </div>
-  );
+  )
 }
