@@ -1,6 +1,6 @@
 import { ScrollArea } from "@/components/ui/scroll-area"
 
-export default function Main() {
+export default function DashboardPage() {
     return (
         <div className="w-full h-full flex flex-row gap-4">
             <Section label="Projects">

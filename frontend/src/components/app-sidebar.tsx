@@ -12,6 +12,7 @@ import {
 import { type LucideIcon, ChevronRight, Folder, List, LogOut, User } from "lucide-react"
 import { SidebarMenu, SidebarMenuItem, SidebarMenuButton } from "@/components/ui/sidebar"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./ui/collapsible"
+import { useNavigate } from "react-router-dom"
 
 /**
  * Use these to create items and routes for the sidebar
@@ -31,11 +32,11 @@ const menu_items = {
             items: [
                 {
                     title: "Project Table",
-                    url: "#",
+                    url: "/dashboard/projects",
                 },
                 {
                     title: "Create Project",
-                    url: "#",
+                    url: "/dashboard/projects/create",
                 },
             ],
         },
@@ -71,6 +72,7 @@ const menu_items = {
 }
 
 export function AppSidebar() {
+    const navigate = useNavigate()
   return (
    <Sidebar>
         <SidebarHeader>
@@ -89,12 +91,13 @@ export function AppSidebar() {
 }
 
 export function NavLogout() {
+    const navigate = useNavigate()
     return (
         <SidebarGroup>
             <SidebarMenu>
                 <SidebarMenuItem>
                     <SidebarMenuButton asChild>
-                        <a href="/logout">
+                        <a onClick={() => navigate("/")} className="cursor-pointer">
                             <LogOut />
                             <span>Logout</span>
                         </a>
@@ -119,6 +122,7 @@ export function NavMain({
     }[]
   }[]
 }) {
+  const navigate = useNavigate()
   return (
     <SidebarGroup>
       <SidebarGroupLabel>Main Menu</SidebarGroupLabel>
@@ -132,7 +136,7 @@ export function NavMain({
           >
             <SidebarMenuItem>
               <CollapsibleTrigger asChild>
-                <SidebarMenuButton tooltip={item.title}>
+                <SidebarMenuButton tooltip={item.title} onClick={() => navigate(item.url)}>
                   {item.icon && <item.icon />}
                   <span>{item.title}</span>
                   <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />

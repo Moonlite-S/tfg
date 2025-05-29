@@ -1,12 +1,9 @@
-import Main from './features/dashboard/main'
-import Layout from './features/NavBar/layout'
+import AppRouter from './Routes'
 
 function App() {
   return (
     <div className="flex flex-col h-screen">
-     <Layout>
-      <Main />
-     </Layout>
+      <AppRouter />
     </div>
   )
 }
