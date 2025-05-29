@@ -72,7 +72,6 @@ const menu_items = {
 }
 
 export function AppSidebar() {
-    const navigate = useNavigate()
   return (
    <Sidebar>
         <SidebarHeader>
