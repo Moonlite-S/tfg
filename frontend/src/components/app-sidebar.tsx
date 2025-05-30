@@ -13,6 +13,7 @@ import { type LucideIcon, ChevronRight, Folder, List, LogOut, User } from "lucid
 import { SidebarMenu, SidebarMenuItem, SidebarMenuButton } from "@/components/ui/sidebar"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./ui/collapsible"
 import { useNavigate } from "react-router-dom"
+import { logout } from "@/api/logout"
 
 /**
  * Use these to create items and routes for the sidebar
@@ -91,12 +92,16 @@ export function AppSidebar() {
 
 export function NavLogout() {
     const navigate = useNavigate()
+
+    const handleLogout = () => {
+        logout(navigate)
+    }
     return (
         <SidebarGroup>
             <SidebarMenu>
                 <SidebarMenuItem>
                     <SidebarMenuButton asChild>
-                        <a onClick={() => navigate("/")} className="cursor-pointer">
+                        <a onClick={handleLogout} className="cursor-pointer">
                             <LogOut />
                             <span>Logout</span>
                         </a>

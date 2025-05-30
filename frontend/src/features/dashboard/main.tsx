@@ -2,7 +2,7 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 
 export default function DashboardPage() {
     return (
-        <div className="w-full h-full flex flex-row gap-4">
+        <SectionContainer>
             <Section label="Projects">
                 <div>
                     <h1>Yo test</h1>
@@ -18,10 +18,22 @@ export default function DashboardPage() {
                     <h1>Yo test</h1>
                 </div>
             </Section>
-        </div>
+            <Section label="Settings">
+                <div>
+                    <h1>Yo test</h1>
+                </div>
+            </Section>
+        </SectionContainer>
     )
 }
 
+function SectionContainer({children}: {children: React.ReactNode}) {
+    return (
+        <div className="w-full h-full grid grid-cols-4 gap-4">
+            {children}
+        </div>
+    )
+}
 /**
  * A section is a container for a section of the dashboard.
  * It is used to group related content together. Typically used for the Projects, Tasks, etc.
@@ -30,7 +42,7 @@ export default function DashboardPage() {
  */
 export function Section({label, children}: {label: string, children: React.ReactNode}) {
     return (
-        <div className="w-[20rem] h-[60rem] p-4 border">
+        <div className="w-full h-full p-4 border">
             <h4>{label}</h4>
             <ScrollArea className="w-full h-[50rem]">
                 {children}

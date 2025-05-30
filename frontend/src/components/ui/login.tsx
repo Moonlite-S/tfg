@@ -31,6 +31,7 @@ export function LoginForm() {
   const onSubmit = async (data: LoginFormData) => {
     try {
       const response = await login(data)
+      console.log(response)
       if (response.status === 200) {
         navigate("/dashboard")
       }
