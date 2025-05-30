@@ -1,0 +1,1 @@
+export const generic_input_css = "border rounded-xl border-gray-400 focus:outline-none focus:ring focus:ring-orange-400 p-2 dark:bg-stone-900 dark:border-stone-700 dark:text-stone-100 dark:focus:ring-orange-700"
