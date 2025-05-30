@@ -9,7 +9,7 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
 } from "@/components/ui/sidebar"
-import { type LucideIcon, ChevronRight, Folder, List, LogOut, User } from "lucide-react"
+import { type LucideIcon, ChevronRight, Folder, Home, List, LogOut, User } from "lucide-react"
 import { SidebarMenu, SidebarMenuItem, SidebarMenuButton } from "@/components/ui/sidebar"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./ui/collapsible"
 import { useNavigate } from "react-router-dom"
@@ -33,11 +33,11 @@ const menu_items = {
             items: [
                 {
                     title: "Project Table",
-                    url: "/dashboard/projects",
+                    url: "/projects",
                 },
                 {
                     title: "Create Project",
-                    url: "/dashboard/projects/create",
+                    url: "/projects/create",
                 },
             ],
         },
@@ -49,11 +49,11 @@ const menu_items = {
             items: [
                 {
                     title: "Task Table",
-                    url: "#",
+                    url: "/tasks",
                 },
                 {
                     title: "Create Task",
-                    url: "#",
+                    url: "/tasks/create",
                 },
             ],
         },
@@ -65,7 +65,7 @@ const menu_items = {
             items: [
                 {
                     title: "User Table",
-                    url: "#",
+                    url: "/users",
                 },
             ],
         },
@@ -100,6 +100,7 @@ export function NavLogout() {
         <SidebarGroup>
             <SidebarMenu>
                 <SidebarMenuItem>
+
                     <SidebarMenuButton asChild>
                         <a onClick={handleLogout} className="cursor-pointer">
                             <LogOut />
@@ -131,6 +132,12 @@ export function NavMain({
     <SidebarGroup>
       <SidebarGroupLabel>Main Menu</SidebarGroupLabel>
       <SidebarMenu>
+        <SidebarMenuButton asChild>
+          <a href="/dashboard">
+            <Home />
+            <span>Dashboard</span>
+          </a>
+        </SidebarMenuButton>
         {items.map((item) => (
           <Collapsible
             key={item.title}

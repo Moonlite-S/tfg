@@ -19,8 +19,8 @@ PROJECT_STATUS_CHOICES = [
 ]
 
 class Project(models.Model):
-    id = models.CharField(max_length=255, primary_key=True)
-    name = models.CharField(max_length=255)
+    project_id = models.CharField(max_length=255, primary_key=True)
+    project_name = models.CharField(max_length=255)
     category = models.CharField(max_length=2, choices=CATEGORY_CHOICES)
     description = models.TextField(blank=True)
     status = models.CharField(max_length=25, choices=PROJECT_STATUS_CHOICES, default='Active')
@@ -41,4 +41,4 @@ class Project(models.Model):
         pass
 
     def __str__(self):
-        return self.name
+        return self.project_name

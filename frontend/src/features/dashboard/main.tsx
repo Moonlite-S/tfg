@@ -42,9 +42,9 @@ function SectionContainer({children}: {children: React.ReactNode}) {
  */
 export function Section({label, children}: {label: string, children: React.ReactNode}) {
     return (
-        <div className="w-full h-full p-4 border">
+        <div className="w-full h-full p-4 border rounded-lg">
             <h4>{label}</h4>
-            <ScrollArea className="w-full h-[50rem]">
+            <ScrollArea className="w-full h-[30rem]">
                 {children}
             </ScrollArea>
         </div>

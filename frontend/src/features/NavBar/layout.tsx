@@ -7,8 +7,10 @@ export default function Layout() {
     <SidebarProvider>
       <AppSidebar />
       <SidebarInset>
-        <SidebarTrigger />
-        <Outlet />
+        <div className="px-2">
+          <SidebarTrigger />
+          <Outlet />
+        </div>
       </SidebarInset>
     </SidebarProvider>
   )

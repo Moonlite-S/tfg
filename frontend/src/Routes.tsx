@@ -4,6 +4,7 @@ import DashboardPage from "./features/dashboard/main";
 import Layout from "./features/NavBar/layout";
 import { Verification } from "./components/Verification";
 import { Error401Page, Error403Page, Error404Page } from "./components/error";
+import { ProjectTableMain } from "./features/project/project";
 
 export default function AppRouter() {
   return (
@@ -15,6 +16,8 @@ export default function AppRouter() {
         {/* Layout is the navbar / sidebar */}
         <Route element={<Layout />}>
           <Route path="/dashboard" element={<DashboardPage />} />
+
+          <Route path="/projects" element={<ProjectTableMain />} />
         </Route>
       </Route>
 
